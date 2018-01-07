@@ -24,7 +24,6 @@ namespace ECommerce
                 var services = scope.ServiceProvider;
                 var dbContext = services.GetRequiredService<EcommerceContext>();
 
-                dbContext.Database.EnsureCreated();
                 dbContext.Database.Migrate();
                 dbContext.EnsureSeeded();
             }
