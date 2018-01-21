@@ -1,5 +1,5 @@
 <template>
-  <product-list />
+  <product-list :products="products" />
 </template>
 
 <script>
@@ -9,6 +9,20 @@ export default {
   name: "catalogue",
   components: {
     ProductList
+  },
+  data() {
+    return {
+      products: []
+    };
+  },
+  mounted() {
+    fetch("/api/products")
+      .then(response => {
+        return response.json();
+      })
+      .then(products => {
+        this.products = products;
+      });
   }
 };
 </script>
