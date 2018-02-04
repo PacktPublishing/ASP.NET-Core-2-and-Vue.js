@@ -97,10 +97,81 @@ namespace ECommerce.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("ECommerce.Data.Entities.Brand", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Brands");
+                });
+
+            modelBuilder.Entity("ECommerce.Data.Entities.Colour", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Colours");
+                });
+
+            modelBuilder.Entity("ECommerce.Data.Entities.Feature", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Features");
+                });
+
+            modelBuilder.Entity("ECommerce.Data.Entities.Image", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("ProductId");
+
+                    b.Property<string>("Url")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("Images");
+                });
+
+            modelBuilder.Entity("ECommerce.Data.Entities.OS", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OS");
+                });
+
             modelBuilder.Entity("ECommerce.Data.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<int>("BrandId");
 
                     b.Property<string>("Description")
                         .IsRequired();
@@ -108,7 +179,9 @@ namespace ECommerce.Data.Migrations
                     b.Property<string>("Name")
                         .IsRequired();
 
-                    b.Property<decimal>("Price");
+                    b.Property<int>("OSId");
+
+                    b.Property<decimal>("ScreenSize");
 
                     b.Property<string>("ShortDescription")
                         .IsRequired();
@@ -116,15 +189,67 @@ namespace ECommerce.Data.Migrations
                     b.Property<string>("Slug")
                         .IsRequired();
 
+                    b.Property<decimal>("StandbyTime");
+
+                    b.Property<decimal>("TalkTime");
+
                     b.Property<string>("Thumbnail")
                         .IsRequired();
 
                     b.HasKey("Id");
 
+                    b.HasIndex("BrandId");
+
+                    b.HasIndex("OSId");
+
                     b.HasIndex("Slug")
                         .IsUnique();
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("ECommerce.Data.Entities.ProductFeature", b =>
+                {
+                    b.Property<int>("ProductId");
+
+                    b.Property<int>("FeatureId");
+
+                    b.HasKey("ProductId", "FeatureId");
+
+                    b.HasIndex("FeatureId");
+
+                    b.ToTable("ProductFeatures");
+                });
+
+            modelBuilder.Entity("ECommerce.Data.Entities.ProductVariant", b =>
+                {
+                    b.Property<int>("ProductId");
+
+                    b.Property<int>("ColourId");
+
+                    b.Property<int>("StorageId");
+
+                    b.Property<decimal>("Price");
+
+                    b.HasKey("ProductId", "ColourId", "StorageId");
+
+                    b.HasIndex("ColourId");
+
+                    b.HasIndex("StorageId");
+
+                    b.ToTable("ProductVariants");
+                });
+
+            modelBuilder.Entity("ECommerce.Data.Entities.Storage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("Capacity");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Storage");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -206,6 +331,58 @@ namespace ECommerce.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("ECommerce.Data.Entities.Image", b =>
+                {
+                    b.HasOne("ECommerce.Data.Entities.Product", "Product")
+                        .WithMany("Images")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("ECommerce.Data.Entities.Product", b =>
+                {
+                    b.HasOne("ECommerce.Data.Entities.Brand", "Brand")
+                        .WithMany("Products")
+                        .HasForeignKey("BrandId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("ECommerce.Data.Entities.OS", "OS")
+                        .WithMany()
+                        .HasForeignKey("OSId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("ECommerce.Data.Entities.ProductFeature", b =>
+                {
+                    b.HasOne("ECommerce.Data.Entities.Feature", "Feature")
+                        .WithMany("ProductFeatures")
+                        .HasForeignKey("FeatureId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("ECommerce.Data.Entities.Product", "Product")
+                        .WithMany("ProductFeatures")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("ECommerce.Data.Entities.ProductVariant", b =>
+                {
+                    b.HasOne("ECommerce.Data.Entities.Colour", "Colour")
+                        .WithMany("ProductVariants")
+                        .HasForeignKey("ColourId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("ECommerce.Data.Entities.Product", "Product")
+                        .WithMany("ProductVariants")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("ECommerce.Data.Entities.Storage", "Storage")
+                        .WithMany("ProductVarians")
+                        .HasForeignKey("StorageId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
