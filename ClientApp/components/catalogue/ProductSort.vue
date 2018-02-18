@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-4 float-right">
+  <div>
     <span class="label mr-2">Sort by</span>
     <b-dropdown class="dropdown" right :text="items[selected]">
       <b-dropdown-item v-for="(item, index) in items" :key="index" @click="select(index)">{{ item }}</b-dropdown-item>
