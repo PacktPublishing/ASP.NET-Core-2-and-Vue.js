@@ -13,7 +13,7 @@ module.exports = env => {
       entry: {
         vendor: [
           "event-source-polyfill",
-          "isomorphic-fetch",
+          "axios",
           "vue",
           "vue-router",
           "bootstrap/dist/css/bootstrap.min.css",
