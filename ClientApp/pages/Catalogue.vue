@@ -2,10 +2,10 @@
   <b-container fluid class="page">
     <b-row>
       <b-col cols="3">
-        <filters :filters="filters" />
+        <filters v-if="products.length" :filters="filters" />
       </b-col>
       <b-col cols="9">
-        <product-list :products="products" />
+        <product-list v-if="products.length" :products="products" />
       </b-col>
     </b-row>
   </b-container>
