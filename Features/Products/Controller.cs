@@ -24,7 +24,7 @@ namespace ECommerce.Features.Products
     public async Task<IActionResult> Find(string brands, int? minPrice, int? maxPrice, int? minScreen, int? maxScreen, string capacity, string colours, string os, string features)
     {
       var Brands = string.IsNullOrEmpty(brands) ? new List<string>() : brands.Split('|').ToList();
-      var Capacity = string.IsNullOrEmpty(capacity) ? new List<int>() : capacity.Split('|').Select(x => Int32.Parse(x)).ToList();
+      var Capacity = string.IsNullOrEmpty(capacity) ? new List<int>() : capacity.Split('|').Select(x => Int32.Parse(x.Substring(0, x.IndexOf("GB")))).ToList();
       var Colours = string.IsNullOrEmpty(colours) ? new List<string>() : colours.Split('|').ToList();
       var OS = string.IsNullOrEmpty(os) ? new List<string>() : os.Split('|').ToList();
       var Features = string.IsNullOrEmpty(features) ? new List<string>() : features.Split('|').ToList();
