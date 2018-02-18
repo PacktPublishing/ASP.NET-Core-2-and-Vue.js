@@ -2,13 +2,14 @@
   <b-container fluid class="page">
     <b-row>
       <b-col cols="3">
-        <filters v-if="products.length" :filters="filters" />
+        <filters v-if="filters.brands.length" :filters="filters" />
       </b-col>
       <b-col cols="9">
-        <div class="clearfix">
-          <product-sort />
+        <div class="mt-4 flex">
+          <search-bar class="search" />
+          <product-sort class="ml-4" />
         </div>
-        <product-list v-if="products.length" :products="sortedProducts" />
+        <product-list :products="sortedProducts" />
       </b-col>
     </b-row>
   </b-container>
@@ -17,6 +18,7 @@
 <script>
 import axios from "axios";
 import Filters from "../components/catalogue/Filters.vue";
+import SearchBar from "../components/catalogue/SearchBar.vue";
 import ProductSort from "../components/catalogue/ProductSort.vue";
 import ProductList from "../components/catalogue/ProductList.vue";
 
@@ -24,6 +26,7 @@ export default {
   name: "catalogue",
   components: {
     Filters,
+    SearchBar,
     ProductSort,
     ProductList
   },
@@ -93,3 +96,14 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.flex {
+  display: flex;
+  flex-direction: row;
+
+  .search {
+    flex: 1;
+  }
+}
+</style>
