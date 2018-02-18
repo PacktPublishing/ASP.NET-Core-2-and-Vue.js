@@ -4,13 +4,15 @@
       :value="query"
       type="text"
       placeholder="Search..."
-      @change="update"
+      @input="update"
       @keyup.enter.native="search">
     </b-form-input>
   </div>
 </template>
 
 <script>
+import _ from "lodash";
+
 export default {
   name: "search-bar",
   data() {
@@ -27,7 +29,7 @@ export default {
     update(newVal) {
       this.value = newVal;
     },
-    search() {
+    search: _.debounce(function() {
       let query = Object.assign({}, this.$route.query);
 
       if (this.value.trim()) {
@@ -37,6 +39,11 @@ export default {
       }
 
       this.$router.push({ query: query });
+    }, 500)
+  },
+  watch: {
+    value(newValue) {
+      this.search();
     }
   }
 };
