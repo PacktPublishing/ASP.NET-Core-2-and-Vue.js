@@ -28,7 +28,18 @@
           <li v-for="feature in product.features" :key="feature">{{ feature }}</li>
         </ul>
 
-        <p class="mt-4 mb-4">£{{ product.price }}</p>
+        <h5>Variants</h5>
+        <b-form-group label="Colour">
+          <b-form-select :options="product.colours" v-model="colour" />
+        </b-form-group>
+
+        <b-form-group label="Capacity">
+          <b-form-select :options="product.storage" v-model="capacity" />
+        </b-form-group>
+
+        <p class="mt-4 mb-4">
+          <b>Price:</b> £{{ variant.price }}
+        </p>
 
         <b-button variant="primary">Add to cart</b-button>
       </b-col>
@@ -62,11 +73,24 @@ export default {
   components: {
     Gallery
   },
+  created() {
+    this.colour = this.product.colours[0].value;
+    this.capacity = this.product.storage[0].value;
+  },
   data() {
     return {
       open: false,
-      index: 0
+      index: 0,
+      colour: null,
+      capacity: null
     };
+  },
+  computed: {
+    variant() {
+      return this.product.variants.find(
+        v => v.colourId == this.colour && v.storageId == this.capacity
+      );
+    }
   },
   methods: {
     back() {
