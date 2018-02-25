@@ -16,6 +16,7 @@ module.exports = env => {
           "axios",
           "vue",
           "vue-router",
+          "vuex",
           "bootstrap/dist/css/bootstrap.min.css",
           "bootstrap-vue",
           "nprogress/nprogress.css"
