@@ -7,6 +7,11 @@ import NProgress from "nprogress";
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
 
+// filters
+import { currency } from "./filters";
+
+Vue.filter("currency", currency);
+
 //import page components
 import Catalogue from "./pages/Catalogue.vue";
 import Product from "./pages/Product.vue";

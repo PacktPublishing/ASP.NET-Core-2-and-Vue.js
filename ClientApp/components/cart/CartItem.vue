@@ -17,13 +17,13 @@
       </b-row>
     </td>
     <td>
-      £{{ item.price }}
+      {{ item.price | currency }}
     </td>
     <td>
       <b-form-input type="number" :value="item.quantity"></b-form-input>
     </td>
     <td>
-      £{{ item.price * item.quantity }}
+      {{ item.price * item.quantity | currency }}
     </td>
     <td>
       <b-button variant="danger">
