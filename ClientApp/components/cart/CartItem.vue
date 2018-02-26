@@ -1,0 +1,77 @@
+<template>
+  <tr>
+    <td>
+      <b-row align-v="center">
+        <b-col cols="auto">
+          <img :src="item.thumbnail" :alt="item.name" />
+        </b-col>
+        <b-col class="align-middle">
+          <h5>{{ item.name }}</h5>
+          <div>
+            Colour: <strong>{{ item.colour }}</strong>  
+          </div>
+          <div>
+            Capacity: <strong>{{ item.capacity }}</strong>
+          </div>
+        </b-col>
+      </b-row>
+    </td>
+    <td>
+      £{{ item.price }}
+    </td>
+    <td>
+      <b-form-input type="number" :value="item.quantity"></b-form-input>
+    </td>
+    <td>
+      £{{ item.price * item.quantity }}
+    </td>
+    <td>
+      <b-button variant="danger">
+        <i class="fas fa-trash-alt"></i>
+      </b-button>
+    </td>
+  </tr>
+</template>
+
+<script>
+export default {
+  name: "cart-item",
+  props: {
+    item: {
+      type: Object,
+      required: true
+    }
+  }
+};
+</script>
+
+<style lang="scss" scoped>
+td {
+  vertical-align: middle;
+}
+
+td:nth-child(1) {
+  width: auto;
+  min-width: 350px;
+
+  img {
+    width: 100px;
+  }
+}
+
+td:nth-child(2) {
+  width: 75px;
+}
+
+td:nth-child(3) {
+  width: 75px;
+}
+
+td:nth-child(4) {
+  width: 125px;
+}
+
+td:nth-child(5) {
+  width: 125px;
+}
+</style>

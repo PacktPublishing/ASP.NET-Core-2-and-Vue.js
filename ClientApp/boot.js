@@ -10,10 +10,12 @@ Vue.use(BootstrapVue);
 //import page components
 import Catalogue from "./pages/Catalogue.vue";
 import Product from "./pages/Product.vue";
+import Cart from "./pages/Cart.vue";
 
 const routes = [
   { path: "/products", component: Catalogue },
   { path: "/products/:slug", component: Product },
+  { path: "/cart", component: Cart },
   { path: "*", redirect: "/products" }
 ];
 
