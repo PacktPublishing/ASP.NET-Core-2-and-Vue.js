@@ -12,3 +12,7 @@ export const addProductToCart = ({ state, commit }, product) => {
     commit("addProductToCart", product);
   }
 };
+
+export const removeProductFromCart = ({ commit }, product) => {
+  commit("removeProductFromCart", product);
+};

@@ -13,3 +13,8 @@ export const updateProductQuantity = (state, product) => {
 
   cartItem.quantity++;
 };
+
+export const removeProductFromCart = (state, product) => {
+  const index = state.cart.indexOf(product);
+  state.cart.splice(index, 1);
+};
