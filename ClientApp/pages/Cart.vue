@@ -28,7 +28,7 @@
             </td>
             <td colspan="2"></td>
             <td>
-              <strong>Total: £0.00</strong>
+              <strong>Total: {{ total | currency }}</strong>
             </td>
             <td>
               <b-button variant="success">
@@ -54,6 +54,9 @@ export default {
   computed: {
     items() {
       return this.$store.state.cart;
+    },
+    total() {
+      return this.$store.getters.shoppingCartTotal;
     }
   },
   methods: {
