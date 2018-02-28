@@ -77,7 +77,7 @@ td:nth-child(3) {
 }
 
 td:nth-child(4) {
-  width: 125px;
+  min-width: 150px;
 }
 
 td:nth-child(5) {
