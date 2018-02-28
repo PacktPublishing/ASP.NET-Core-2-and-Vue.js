@@ -4,14 +4,11 @@ export const addProductToCart = (state, product) => {
 };
 
 export const updateProductQuantity = (state, product) => {
-  let cartItem = state.cart.find(
-    i =>
-      i.productId === product.productId &&
-      i.colourId === product.colourId &&
-      i.storageId === product.storageId
-  );
-
+  const index = state.cart.indexOf(product);
+  let cartItem = state.cart[index];
   cartItem.quantity++;
+
+  state.cart.splice(index, 1, Object.assign({}, cartItem));
 };
 
 export const removeProductFromCart = (state, product) => {
