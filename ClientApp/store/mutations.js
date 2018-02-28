@@ -23,3 +23,10 @@ export const setProductQuantity = (state, payload) => {
 
   state.cart.splice(index, 1, Object.assign({}, cartItem));
 };
+
+export const initialise = state => {
+  const store = localStorage.getItem("store");
+  if (store) {
+    Object.assign(state, JSON.parse(store));
+  }
+};
