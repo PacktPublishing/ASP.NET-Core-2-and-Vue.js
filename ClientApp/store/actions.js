@@ -16,3 +16,11 @@ export const addProductToCart = ({ state, commit }, product) => {
 export const removeProductFromCart = ({ commit }, product) => {
   commit("removeProductFromCart", product);
 };
+
+export const setProductQuantity = ({ commit }, payload) => {
+  if (payload.quantity > 0) {
+    commit("setProductQuantity", payload);
+  } else {
+    commit("removeProductFromCart", payload.product);
+  }
+};

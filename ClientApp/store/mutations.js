@@ -18,3 +18,11 @@ export const removeProductFromCart = (state, product) => {
   const index = state.cart.indexOf(product);
   state.cart.splice(index, 1);
 };
+
+export const setProductQuantity = (state, payload) => {
+  const index = state.cart.indexOf(payload.product);
+  let cartItem = state.cart[index];
+  cartItem.quantity = payload.quantity;
+
+  state.cart.splice(index, 1, Object.assign({}, cartItem));
+};
