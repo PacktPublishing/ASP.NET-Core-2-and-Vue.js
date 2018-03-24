@@ -30,3 +30,48 @@ export const initialise = state => {
     Object.assign(state, JSON.parse(store));
   }
 };
+
+export const showAuthModal = state => {
+  state.showAuthModal = true;
+};
+
+export const hideAuthModal = state => {
+  state.showAuthModal = false;
+};
+
+export const loginRequest = state => {
+  state.loading = true;
+};
+
+export const loginSuccess = (state, payload) => {
+  state.auth = payload;
+  state.loading = false;
+};
+
+export const loginError = state => {
+  state.loading = false;
+};
+
+export const registerRequest = state => {
+  state.loading = true;
+};
+
+export const registerSuccess = state => {
+  state.loading = false;
+};
+
+export const registerError = state => {
+  state.loading = false;
+};
+
+export const setPostLoginRedirect = (state, payload) => {
+  state.postLoginRedirect = payload;
+};
+
+export const clearPostLoginRedirect = state => {
+  state.postLoginRedirect = null;
+};
+
+export const logout = state => {
+  state.auth = null;
+};
