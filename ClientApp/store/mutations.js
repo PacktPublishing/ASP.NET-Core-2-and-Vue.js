@@ -24,11 +24,8 @@ export const setProductQuantity = (state, payload) => {
   state.cart.splice(index, 1, Object.assign({}, cartItem));
 };
 
-export const initialise = state => {
-  const store = localStorage.getItem("store");
-  if (store) {
-    Object.assign(state, JSON.parse(store));
-  }
+export const initialise = (state, payload) => {
+  Object.assign(state, payload);
 };
 
 export const showAuthModal = state => {
@@ -62,14 +59,6 @@ export const registerSuccess = state => {
 
 export const registerError = state => {
   state.loading = false;
-};
-
-export const setPostLoginRedirect = (state, payload) => {
-  state.postLoginRedirect = payload;
-};
-
-export const clearPostLoginRedirect = state => {
-  state.postLoginRedirect = null;
 };
 
 export const logout = state => {
