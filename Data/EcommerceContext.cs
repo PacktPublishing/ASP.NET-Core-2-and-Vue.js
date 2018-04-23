@@ -18,6 +18,7 @@ namespace ECommerce.Data
     public DbSet<ProductFeature> ProductFeatures { get; set; }
     public DbSet<ProductVariant> ProductVariants { get; set; }
     public DbSet<Storage> Storage { get; set; }
+    public DbSet<Order> Orders { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -32,6 +33,9 @@ namespace ECommerce.Data
 
       modelBuilder.Entity<ProductVariant>()
         .HasKey(x => new { x.ProductId, x.ColourId, x.StorageId });
+
+      modelBuilder.Entity<Order>()
+        .OwnsOne(x => x.DeliveryAddress);
     }
   }
 }
