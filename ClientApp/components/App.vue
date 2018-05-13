@@ -6,9 +6,10 @@
       <b-collapse is-nav id="nav_collapse">
         <b-navbar-nav>
           <b-nav-item to="/products">Products</b-nav-item>
+          <b-nav-item v-if="isAdmin" to="/admin">Admin</b-nav-item>
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto mr-4">
-          <cart-summary />
+          <cart-summary v-if="isCustomer" />
           <auth-nav-item />
         </b-navbar-nav>
       </b-collapse>
@@ -37,6 +38,15 @@ export default {
   computed: {
     showAuthModal() {
       return this.$store.state.showAuthModal;
+    },
+    isAdmin() {
+      return this.$store.getters.isInRole("Admin");
+    },
+    isCustomer() {
+      return (
+        this.$store.getters.isInRole("Customer") ||
+        !this.$store.getters.isAuthenticated
+      );
     }
   }
 };
