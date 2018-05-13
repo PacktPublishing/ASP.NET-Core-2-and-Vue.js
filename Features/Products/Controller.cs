@@ -4,12 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using ECommerce.Data;
 using ECommerce.Data.Entities;
+using ECommerce.Features.Shared;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Extensions.Internal;
-using Slugify;
 
 namespace ECommerce.Features.Products
 {
@@ -110,8 +110,6 @@ namespace ECommerce.Features.Products
     [HttpPost, Authorize(Roles = "Admin")]
     public async Task<IActionResult> Create([FromBody] CreateProductViewModel model)
     {
-      var slugHelper = new SlugHelper();
-
       var brand = await _db.Brands.FirstOrDefaultAsync(x => x.Name == model.Brand);
 
       if (brand == null)
@@ -125,7 +123,7 @@ namespace ECommerce.Features.Products
       var product = new Product
       {
         Name = model.Name,
-        Slug = slugHelper.GenerateSlug(model.Name),
+        Slug = Slug.Generate(model.Name),
         ShortDescription = model.ShortDescription,
         Description = model.Description,
         TalkTime = model.TalkTime,
