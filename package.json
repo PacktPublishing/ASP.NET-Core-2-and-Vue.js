@@ -14,6 +14,8 @@
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.13.1",
+    "uglify-es": "git://github.com/mishoo/UglifyJS2#harmony",
+    "uglifyjs-webpack-plugin": "^1.2.5",
     "url-loader": "^0.5.7",
     "vue": "^2.2.2",
     "vue-loader": "^11.1.4",
