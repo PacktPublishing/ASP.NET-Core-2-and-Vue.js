@@ -22,7 +22,7 @@
     <Message Importance="high" Text="Performing first-run Webpack build..."/>
   </Target>
   <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
-    <Exec Command="npm cache clean"/>
+    <Exec Command="npm cache clean --force"/>
     <Exec Command="npm install"/>
     <Exec Command="npm rebuild node-sass"/>
     <Exec Command="node node_modules/webpack/bin/webpack.js --config webpack.config.vendor.js --env.prod"/>
