@@ -3,11 +3,11 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace ECommerce.Features.Shared
+namespace ECommerce.Infrastructure
 {
-  public static class Slug
+  public static class StringExtensions
   {
-    public static string Generate(this string phrase)
+    public static string GenerateSlug(this string phrase)
     {
       string str = phrase.RemoveDiacritics().ToLower();
       // invalid chars           
@@ -20,7 +20,7 @@ namespace ECommerce.Features.Shared
       return str;
     }
 
-    public static string RemoveDiacritics(this string text)
+    private static string RemoveDiacritics(this string text)
     {
       var s = new string(text.Normalize(NormalizationForm.FormD)
           .Where(c => CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)

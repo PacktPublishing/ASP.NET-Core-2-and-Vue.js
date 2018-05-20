@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ECommerce.Data;
 using ECommerce.Data.Entities;
-using ECommerce.Features.Shared;
+using ECommerce.Infrastructure;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -123,7 +123,7 @@ namespace ECommerce.Features.Products
       var product = new Product
       {
         Name = model.Name,
-        Slug = Slug.Generate(model.Name),
+        Slug = model.Name.GenerateSlug(),
         ShortDescription = model.ShortDescription,
         Description = model.Description,
         TalkTime = model.TalkTime,
