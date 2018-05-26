@@ -36,6 +36,10 @@ namespace ECommerce.Data
 
       modelBuilder.Entity<Order>()
         .OwnsOne(x => x.DeliveryAddress);
+
+      modelBuilder.Entity<AppUser>()
+        .HasIndex(x => x.RefreshToken)
+        .IsUnique();
     }
   }
 }
