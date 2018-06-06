@@ -13,20 +13,13 @@ export default {
   components: {
     ProductDetails
   },
-  data() {
-    return {
-      product: null
-    };
-  },
-  methods: {
-    setData(product) {
-      this.product = product;
+  computed: {
+    product() {
+      return this.$store.state.product;
     }
   },
-  beforeRouteEnter(to, from, next) {
-    axios.get(`/api/products/${to.params.slug}`).then(response => {
-      next(vm => vm.setData(response.data));
-    });
+  asyncData({ store, route }) {
+    return store.dispatch("fetchProduct", route.params.slug);
   }
 };
 </script>

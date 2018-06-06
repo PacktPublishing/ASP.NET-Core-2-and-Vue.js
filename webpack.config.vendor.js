@@ -19,7 +19,8 @@ module.exports = env => {
           "vuex",
           "bootstrap/dist/css/bootstrap.min.css",
           "bootstrap-vue",
-          "nprogress/nprogress.css"
+          "nprogress/nprogress.css",
+          "aspnet-prerendering"
         ]
       },
       module: {

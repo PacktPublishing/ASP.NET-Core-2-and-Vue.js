@@ -11,21 +11,13 @@ export default {
   components: {
     OrderList
   },
-  data() {
-    return {
-      orders: null
-    };
-  },
-  methods: {
-    setData(orders) {
-      this.orders = orders;
+  computed: {
+    orders() {
+      return this.$store.state.orders;
     }
   },
-  beforeRouteEnter(to, from, next) {
-    const vm = this;
-    axios.get("/api/orders").then(response => {
-      next(vm => vm.setData(response.data));
-    });
+  asyncData({ store }) {
+    return store.dispatch("fetchOrders");
   }
 };
 </script>

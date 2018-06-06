@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookie from "js-cookie";
 
 export const addProductToCart = ({ state, commit }, product) => {
   const exists = state.cart.find(
@@ -39,11 +40,13 @@ export const login = ({ commit }, payload) => {
         }`;
         commit("loginSuccess", auth);
         commit("hideAuthModal");
+        Cookie.set("AUTH", JSON.stringify(auth));
         resolve(response);
       })
       .catch(error => {
         commit("loginError");
         delete axios.defaults.headers.common["Authorization"];
+        Cookie.remove("AUTH");
         reject(error.response);
       });
   });
@@ -68,4 +71,41 @@ export const register = ({ commit }, payload) => {
 export const logout = ({ commit }) => {
   commit("logout");
   delete axios.defaults.headers.common["Authorization"];
+  Cookie.remove("AUTH");
+};
+
+export const fetchProducts = ({ commit }, query) => {
+  return new Promise((resolve, reject) => {
+    return axios.get("/api/products", { params: query }).then(response => {
+      commit("setProducts", response.data);
+      resolve(response);
+    });
+  });
+};
+
+export const fetchFilters = ({ commit }) => {
+  return new Promise((resolve, reject) => {
+    return axios.get("/api/filters").then(response => {
+      commit("setFilters", response.data);
+      resolve(response);
+    });
+  });
+};
+
+export const fetchProduct = ({ commit }, slug) => {
+  return new Promise((resolve, reject) => {
+    return axios.get(`/api/products/${slug}`).then(response => {
+      commit("setProduct", response.data);
+      resolve(response);
+    });
+  });
+};
+
+export const fetchOrders = ({ commit }) => {
+  return new Promise((resolve, reject) => {
+    return axios.get("/api/orders").then(response => {
+      commit("setOrders", response.data);
+      resolve(response);
+    });
+  });
 };

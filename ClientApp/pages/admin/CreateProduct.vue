@@ -125,7 +125,7 @@
       <div class="clearfix">
         <b-button class="float-right" variant="primary" @click.prevent="save">Save product</b-button>
       </div>
-    </form>  
+    </form> 
 
     <add-variant-modal 
       :colours="colours"
@@ -165,22 +165,27 @@ export default {
         features: [],
         variants: []
       },
-      brands: [],
-      os: [],
-      features: [],
-      colours: [],
-      storage: [],
       variantsError: null
     };
   },
-  methods: {
-    setData(data) {
-      this.brands = data.brands;
-      this.os = data.os;
-      this.features = data.features;
-      this.colours = data.colours;
-      this.storage = data.storage;
+  computed: {
+    brands() {
+      return this.$store.state.filters.brands;
     },
+    os() {
+      return this.$store.state.filters.os;
+    },
+    features() {
+      return this.$store.state.filters.features;
+    },
+    colours() {
+      return this.$store.state.filters.colours;
+    },
+    storage() {
+      return this.$store.state.filters.storage;
+    }
+  },
+  methods: {
     save() {
       if (this.product.variants.length <= 0) {
         this.variantsError = "You must add at least one product variant.";
@@ -206,11 +211,8 @@ export default {
       this.product.variants.push(variant);
     }
   },
-  beforeRouteEnter(to, from, next) {
-    const vm = this;
-    axios.get("/api/filters").then(response => {
-      next(vm => vm.setData(response.data));
-    });
+  asyncData({ store }) {
+    return store.dispatch("fetchFilters");
   }
 };
 </script>

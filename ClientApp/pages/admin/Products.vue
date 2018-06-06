@@ -36,21 +36,13 @@ import axios from "axios";
 
 export default {
   name: "products",
-  data() {
-    return {
-      products: null
-    };
-  },
-  methods: {
-    setData(products) {
-      this.products = products;
+  computed: {
+    products() {
+      return this.$store.state.products;
     }
   },
-  beforeRouteEnter(to, from, next) {
-    const vm = this;
-    axios.get("/api/products").then(response => {
-      next(vm => vm.setData(response.data));
-    });
+  asyncData({ store }) {
+    return store.dispatch("fetchProducts");
   }
 };
 </script>

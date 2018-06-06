@@ -28,8 +28,8 @@ export const clearCartItems = state => {
   state.cart = [];
 };
 
-export const initialise = (state, payload) => {
-  Object.assign(state, payload);
+export const setCartItems = (state, items) => {
+  state.cart = items;
 };
 
 export const showAuthModal = state => {
@@ -67,4 +67,20 @@ export const registerError = state => {
 
 export const logout = state => {
   state.auth = null;
+};
+
+export const setProducts = (state, products) => {
+  state.products = products;
+};
+
+export const setFilters = (state, filters) => {
+  state.filters = filters;
+};
+
+export const setProduct = (state, product) => {
+  state.product = product;
+};
+
+export const setOrders = (state, orders) => {
+  state.orders = orders;
 };

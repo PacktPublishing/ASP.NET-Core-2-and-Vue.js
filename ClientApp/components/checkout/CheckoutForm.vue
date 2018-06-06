@@ -74,19 +74,19 @@
 
 <script>
 import axios from "axios";
-
-let stripe = Stripe(`pk_test_NNMExLrT99IPhWHmPdu3xuXo`),
-  elements = stripe.elements(),
-  card = null,
-  style = {
-    base: {
-      lineHeight: "24px"
-    }
-  };
+let card = null;
 
 export default {
   name: "checkout-form",
   mounted() {
+    let stripe = Stripe(`pk_test_NNMExLrT99IPhWHmPdu3xuXo`),
+      elements = stripe.elements(),
+      style = {
+        base: {
+          lineHeight: "24px"
+        }
+      };
+
     card = elements.create("card", { style: style });
     card.mount(this.$refs.card);
   },

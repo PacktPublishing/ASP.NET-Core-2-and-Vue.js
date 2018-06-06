@@ -13,7 +13,14 @@
 </template>
 
 <script>
-import * as Velocity from "velocity-animate";
+let Velocity;
+if (typeof window !== "undefined") {
+  Velocity = require("velocity-animate");
+} else {
+  Velocity = function() {
+    return Promise().resolve(true);
+  };
+}
 
 export default {
   name: "filter-accordion",

@@ -16,12 +16,28 @@ const store = new Vuex.Store({
     auth: null,
     showAuthModal: false,
     loading: false,
-    cart: []
+    cart: [],
+    products: [],
+    filters: [],
+    product: null,
+    orders: []
   }
 });
 
-store.subscribe((mutation, state) => {
-  localStorage.setItem("store", JSON.stringify(state));
-});
+if (typeof window !== "undefined") {
+  store.subscribe((mutation, state) => {
+    const cartMutations = [
+      "addProductToCart",
+      "updateProductQuantity",
+      "removeProductFromCart",
+      "setProductQuantity",
+      "clearCartItems"
+    ];
+
+    if (cartMutations.indexOf(mutation.type) >= 0) {
+      localStorage.setItem("cart", JSON.stringify(state.cart));
+    }
+  });
+}
 
 export default store;
