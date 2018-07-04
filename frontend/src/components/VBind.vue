@@ -1,17 +1,17 @@
 <template>
   <div>
     <h1>Bind Example</h1>
-    <div v-bind:text-content.prop="message"></div>
+    <input v-bind:value="message" />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'v-bind',
-  data () {
+  name: "data-binding",
+  data() {
     return {
-      message: 'Hands on Vue.js and ASP.NET Core'
-    }
+      message: "Hands on Vue.js and ASP.NET Core"
+    };
   }
-}
+};
 </script>
