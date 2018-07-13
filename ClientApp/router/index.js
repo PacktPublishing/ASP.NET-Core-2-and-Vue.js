@@ -10,7 +10,10 @@ Vue.use(VueRouter);
 const router = new VueRouter({ mode: "history", routes: routes });
 
 router.beforeEach((to, from, next) => {
-  NProgress.start();
+  if (typeof window !== "undefined") {
+    NProgress.start();
+  }
+
   if (to.matched.some(route => route.meta.requiresAuth)) {
     if (!store.getters.isAuthenticated) {
       store.commit("showAuthModal");
