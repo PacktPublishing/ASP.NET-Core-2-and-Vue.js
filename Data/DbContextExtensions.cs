@@ -65,7 +65,7 @@ namespace ECommerce.Data
 
       if (context.Storage.Any() == false)
       {
-        var storage = new List<int>() { 4, 8, 16, 32, 64, 128, 256 };
+        var storage = new List<string>() { "4GB", "8GB", "16GB", "32GB", "64GB", "128GB", "256GB" };
 
         storage.ForEach(s => context.Storage.Add(new Storage
         {
@@ -154,25 +154,25 @@ namespace ECommerce.Data
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Black"),
-                Storage = context.Storage.Single(s => s.Capacity == 32),
+                Storage = context.Storage.Single(s => s.Capacity == "32GB"),
                 Price = 299M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Black"),
-                Storage = context.Storage.Single(s => s.Capacity == 64),
+                Storage = context.Storage.Single(s => s.Capacity == "64GB"),
                 Price = 349M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Gold"),
-                Storage = context.Storage.Single(s => s.Capacity == 32),
+                Storage = context.Storage.Single(s => s.Capacity == "32GB"),
                 Price = 319M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Gold"),
-                Storage = context.Storage.Single(s => s.Capacity == 64),
+                Storage = context.Storage.Single(s => s.Capacity == "64GB"),
                 Price = 369M
               }
             }
@@ -222,25 +222,25 @@ namespace ECommerce.Data
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "White"),
-                Storage = context.Storage.Single(s => s.Capacity == 8),
+                Storage = context.Storage.Single(s => s.Capacity == "8GB"),
                 Price = 149M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "White"),
-                Storage = context.Storage.Single(s => s.Capacity == 16),
+                Storage = context.Storage.Single(s => s.Capacity == "16GB"),
                 Price = 169M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Silver"),
-                Storage = context.Storage.Single(s => s.Capacity == 8),
+                Storage = context.Storage.Single(s => s.Capacity == "8GB"),
                 Price = 159M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Silver"),
-                Storage = context.Storage.Single(s => s.Capacity == 16),
+                Storage = context.Storage.Single(s => s.Capacity == "16GB"),
                 Price = 179M
               }
             }
@@ -290,37 +290,37 @@ namespace ECommerce.Data
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Grey"),
-                Storage = context.Storage.Single(s => s.Capacity == 4),
+                Storage = context.Storage.Single(s => s.Capacity == "4GB"),
                 Price = 99M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Grey"),
-                Storage = context.Storage.Single(s => s.Capacity == 8),
+                Storage = context.Storage.Single(s => s.Capacity == "8GB"),
                 Price = 119M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Grey"),
-                Storage = context.Storage.Single(s => s.Capacity == 16),
+                Storage = context.Storage.Single(s => s.Capacity == "16GB"),
                 Price = 139M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Spacegrey"),
-                Storage = context.Storage.Single(s => s.Capacity == 4),
+                Storage = context.Storage.Single(s => s.Capacity == "4GB"),
                 Price = 99M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Spacegrey"),
-                Storage = context.Storage.Single(s => s.Capacity == 8),
+                Storage = context.Storage.Single(s => s.Capacity == "8GB"),
                 Price = 119M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Spacegrey"),
-                Storage = context.Storage.Single(s => s.Capacity == 16),
+                Storage = context.Storage.Single(s => s.Capacity == "16GB"),
                 Price = 139M
               }
             }
@@ -382,97 +382,97 @@ namespace ECommerce.Data
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Black"),
-                Storage = context.Storage.Single(s => s.Capacity == 32),
+                Storage = context.Storage.Single(s => s.Capacity == "32GB"),
                 Price = 599M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Black"),
-                Storage = context.Storage.Single(s => s.Capacity == 64),
+                Storage = context.Storage.Single(s => s.Capacity == "64GB"),
                 Price = 699M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Black"),
-                Storage = context.Storage.Single(s => s.Capacity == 128),
+                Storage = context.Storage.Single(s => s.Capacity == "128GB"),
                 Price = 799M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Black"),
-                Storage = context.Storage.Single(s => s.Capacity == 256),
+                Storage = context.Storage.Single(s => s.Capacity == "256GB"),
                 Price = 899M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Silver"),
-                Storage = context.Storage.Single(s => s.Capacity == 32),
+                Storage = context.Storage.Single(s => s.Capacity == "32GB"),
                 Price = 599M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Silver"),
-                Storage = context.Storage.Single(s => s.Capacity == 64),
+                Storage = context.Storage.Single(s => s.Capacity == "64GB"),
                 Price = 699M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Silver"),
-                Storage = context.Storage.Single(s => s.Capacity == 128),
+                Storage = context.Storage.Single(s => s.Capacity == "128GB"),
                 Price = 799M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Silver"),
-                Storage = context.Storage.Single(s => s.Capacity == 256),
+                Storage = context.Storage.Single(s => s.Capacity == "256GB"),
                 Price = 899M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Grey"),
-                Storage = context.Storage.Single(s => s.Capacity == 32),
+                Storage = context.Storage.Single(s => s.Capacity == "32GB"),
                 Price = 599M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Grey"),
-                Storage = context.Storage.Single(s => s.Capacity == 64),
+                Storage = context.Storage.Single(s => s.Capacity == "64GB"),
                 Price = 699M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Grey"),
-                Storage = context.Storage.Single(s => s.Capacity == 128),
+                Storage = context.Storage.Single(s => s.Capacity == "128GB"),
                 Price = 799M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Grey"),
-                Storage = context.Storage.Single(s => s.Capacity == 256),
+                Storage = context.Storage.Single(s => s.Capacity == "256GB"),
                 Price = 899M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Spacegrey"),
-                Storage = context.Storage.Single(s => s.Capacity == 32),
+                Storage = context.Storage.Single(s => s.Capacity == "32GB"),
                 Price = 699M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Spacegrey"),
-                Storage = context.Storage.Single(s => s.Capacity == 64),
+                Storage = context.Storage.Single(s => s.Capacity == "64GB"),
                 Price = 799M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Spacegrey"),
-                Storage = context.Storage.Single(s => s.Capacity == 128),
+                Storage = context.Storage.Single(s => s.Capacity == "128GB"),
                 Price = 899M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Spacegrey"),
-                Storage = context.Storage.Single(s => s.Capacity == 256),
+                Storage = context.Storage.Single(s => s.Capacity == "256GB"),
                 Price = 999M
               }
             }
@@ -534,109 +534,109 @@ namespace ECommerce.Data
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Black"),
-                Storage = context.Storage.Single(s => s.Capacity == 16),
+                Storage = context.Storage.Single(s => s.Capacity == "16GB"),
                 Price = 499M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Black"),
-                Storage = context.Storage.Single(s => s.Capacity == 32),
+                Storage = context.Storage.Single(s => s.Capacity == "32GB"),
                 Price = 599M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Black"),
-                Storage = context.Storage.Single(s => s.Capacity == 64),
+                Storage = context.Storage.Single(s => s.Capacity == "64GB"),
                 Price = 699M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Silver"),
-                Storage = context.Storage.Single(s => s.Capacity == 16),
+                Storage = context.Storage.Single(s => s.Capacity == "16GB"),
                 Price = 499M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Silver"),
-                Storage = context.Storage.Single(s => s.Capacity == 32),
+                Storage = context.Storage.Single(s => s.Capacity == "32GB"),
                 Price = 599M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Silver"),
-                Storage = context.Storage.Single(s => s.Capacity == 64),
+                Storage = context.Storage.Single(s => s.Capacity == "64GB"),
                 Price = 699M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Grey"),
-                Storage = context.Storage.Single(s => s.Capacity == 16),
+                Storage = context.Storage.Single(s => s.Capacity == "16GB"),
                 Price = 499M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Grey"),
-                Storage = context.Storage.Single(s => s.Capacity == 32),
+                Storage = context.Storage.Single(s => s.Capacity == "32GB"),
                 Price = 599M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Grey"),
-                Storage = context.Storage.Single(s => s.Capacity == 64),
+                Storage = context.Storage.Single(s => s.Capacity == "64GB"),
                 Price = 699M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Spacegrey"),
-                Storage = context.Storage.Single(s => s.Capacity == 16),
+                Storage = context.Storage.Single(s => s.Capacity == "16GB"),
                 Price = 499M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Spacegrey"),
-                Storage = context.Storage.Single(s => s.Capacity == 32),
+                Storage = context.Storage.Single(s => s.Capacity == "32GB"),
                 Price = 599M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Spacegrey"),
-                Storage = context.Storage.Single(s => s.Capacity == 64),
+                Storage = context.Storage.Single(s => s.Capacity == "64GB"),
                 Price = 699M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Red"),
-                Storage = context.Storage.Single(s => s.Capacity == 16),
+                Storage = context.Storage.Single(s => s.Capacity == "16GB"),
                 Price = 499M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Red"),
-                Storage = context.Storage.Single(s => s.Capacity == 32),
+                Storage = context.Storage.Single(s => s.Capacity == "32GB"),
                 Price = 599M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Red"),
-                Storage = context.Storage.Single(s => s.Capacity == 64),
+                Storage = context.Storage.Single(s => s.Capacity == "64GB"),
                 Price = 699M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Pink"),
-                Storage = context.Storage.Single(s => s.Capacity == 16),
+                Storage = context.Storage.Single(s => s.Capacity == "16GB"),
                 Price = 499M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Pink"),
-                Storage = context.Storage.Single(s => s.Capacity == 32),
+                Storage = context.Storage.Single(s => s.Capacity == "32GB"),
                 Price = 599M
               },
               new ProductVariant
               {
                 Colour = context.Colours.Single(c => c.Name == "Pink"),
-                Storage = context.Storage.Single(s => s.Capacity == 64),
+                Storage = context.Storage.Single(s => s.Capacity == "64GB"),
                 Price = 699M
               }
             }
