@@ -28,7 +28,7 @@ namespace ECommerce.Features.Products
     {
       var Query = $"%{q?.ToLower()}%";
       var Brands = string.IsNullOrEmpty(brands) ? new List<string>() : brands.Split('|').ToList();
-      var Capacity = string.IsNullOrEmpty(capacity) ? new List<int>() : capacity.Split('|').Select(x => Int32.Parse(x.Substring(0, x.IndexOf("GB")))).ToList();
+      var Capacity = string.IsNullOrEmpty(capacity) ? new List<string>() : capacity.Split('|').ToList();
       var Colours = string.IsNullOrEmpty(colours) ? new List<string>() : colours.Split('|').ToList();
       var OS = string.IsNullOrEmpty(os) ? new List<string>() : os.Split('|').ToList();
       var Features = string.IsNullOrEmpty(features) ? new List<string>() : features.Split('|').ToList();
@@ -95,7 +95,7 @@ namespace ECommerce.Features.Products
             ColourId = v.ColourId,
             Colour = v.Colour.Name,
             StorageId = v.StorageId,
-            Capacity = $"{v.Storage.Capacity}GB",
+            Capacity = v.Storage.Capacity,
             Price = v.Price
           })
       })
@@ -156,11 +156,10 @@ namespace ECommerce.Features.Products
         if (colour == null)
           colour = new Colour { Name = variant.Colour };
 
-        var capacity = Convert.ToInt32(variant.Storage.Substring(0, variant.Storage.IndexOf("GB")));
-        var storage = await _db.Storage.FirstOrDefaultAsync(x => x.Capacity == capacity);
+        var storage = await _db.Storage.FirstOrDefaultAsync(x => x.Capacity == variant.Storage);
 
         if (storage == null)
-          storage = new Storage { Capacity = capacity };
+          storage = new Storage { Capacity = variant.Storage };
 
         product.ProductVariants.Add(new ProductVariant
         {
