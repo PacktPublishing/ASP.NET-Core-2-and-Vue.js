@@ -95,7 +95,7 @@ namespace ECommerce.Features.Products
             ColourId = v.ColourId,
             Colour = v.Colour.Name,
             StorageId = v.StorageId,
-            Capacity = $"{v.Storage.Capacity}GB",
+            Capacity = v.Storage.Capacity,
             Price = v.Price
           })
       })
@@ -158,11 +158,10 @@ namespace ECommerce.Features.Products
         if (colour == null)
           colour = new Colour { Name = variant.Colour };
 
-        var capacity = Convert.ToInt32(variant.Storage.Substring(0, variant.Storage.IndexOf("GB")));
-        var storage = await _db.Storage.FirstOrDefaultAsync(x => x.Capacity == capacity);
+        var storage = await _db.Storage.FirstOrDefaultAsync(x => x.Capacity == variant.Storage);
 
         if (storage == null)
-          storage = new Storage { Capacity = capacity };
+          storage = new Storage { Capacity = variant.Storage };
 
         product.ProductVariants.Add(new ProductVariant
         {
