@@ -89,7 +89,7 @@ namespace ECommerce.Features.Products
         Storage = x.ProductVariants.Select(v => new SelectListItem
         {
           Value = v.StorageId.ToString(),
-          Text = v.Storage.Capacity.ToString() + "GB"
+          Text = v.Storage.Capacity
         }).Distinct(),
         Variants = x.ProductVariants.Select(v => new ProductVariantViewModel
         {
@@ -99,7 +99,7 @@ namespace ECommerce.Features.Products
           ColourId = v.ColourId,
           Colour = v.Colour.Name,
           StorageId = v.StorageId,
-          Capacity = $"{v.Storage.Capacity}GB",
+          Capacity = v.Storage.Capacity,
           Price = v.Price
         })
       })
