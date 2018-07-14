@@ -2,6 +2,7 @@
   <b-nav-item-dropdown v-if="isAuthenticated" right>
     <template slot="button-content">
       <i class="fas fa-user"></i>
+      {{ fullName }}
     </template>
     <b-dropdown-item to="/account">
       <i class="fas fa-user"></i>
@@ -24,6 +25,11 @@ export default {
   computed: {
     isAuthenticated() {
       return this.$store.getters.isAuthenticated;
+    },
+    fullName() {
+      return `${this.$store.state.auth.firstName} ${
+        this.$store.state.auth.lastName
+      }`;
     }
   },
   methods: {
