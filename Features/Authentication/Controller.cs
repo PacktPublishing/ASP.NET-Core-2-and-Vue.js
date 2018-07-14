@@ -83,7 +83,9 @@ namespace ECommerce.Features.Authentication
       return new TokenViewModel
       {
         AccessToken = new JwtSecurityTokenHandler().WriteToken(token),
-        AccessTokenExpiration = expires
+        AccessTokenExpiration = expires,
+        FirstName = user.FirstName,
+        LastName = user.LastName
       };
     }
   }
