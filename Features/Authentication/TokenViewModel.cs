@@ -11,5 +11,7 @@ namespace ECommerce.Features.Authentication
     [JsonProperty("access_token_expiration")]
     public DateTime AccessTokenExpiration { get; set; }
     public IEnumerable<string> Roles { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
   }
 }

@@ -3,6 +3,12 @@
     <b-alert variant="danger" :show="regErrors !== null" dismissible @dismissed="regErrors = null">
       <div v-for="(error, index) in regErrors" :key="index">{{ error[0] }}</div>
     </b-alert>
+    <b-form-group label="First Name">
+      <b-form-input v-model.trim="firstName" />
+    </b-form-group>
+    <b-form-group label="Last Name">
+      <b-form-input v-model.trim="lastName" />
+    </b-form-group>
     <b-form-group label="E-mail">
       <b-form-input v-model.trim="email" />
     </b-form-group>
@@ -24,6 +30,8 @@ export default {
   name: "register-form",
   data() {
     return {
+      firstName: "",
+      lastName: "",
       email: "",
       password: "",
       confirmPassword: "",
@@ -38,6 +46,8 @@ export default {
   methods: {
     submit() {
       const payload = {
+        firstName: this.firstName,
+        lastName: this.lastName,
         email: this.email,
         password: this.password,
         confirmPassword: this.confirmPassword
@@ -47,6 +57,8 @@ export default {
         .dispatch("register", payload)
         .then(response => {
           this.regErrors = null;
+          this.firstName = "";
+          this.lastName = "";
           this.email = "";
           this.password = "";
           this.confirmPassword = "";
