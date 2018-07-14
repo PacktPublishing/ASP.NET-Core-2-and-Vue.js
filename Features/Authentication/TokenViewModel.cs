@@ -11,5 +11,7 @@ namespace ECommerce.Features.Authentication
     [JsonProperty("refresh_token")]
     public string RefreshToken { get; set; }
     public IEnumerable<string> Roles { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
   }
 }

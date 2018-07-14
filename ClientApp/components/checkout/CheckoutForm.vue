@@ -89,6 +89,8 @@ export default {
 
     card = elements.create("card", { style: style });
     card.mount(this.$refs.card);
+    this.firstName = this.$store.state.auth.firstName;
+    this.lastName = this.$store.state.auth.lastName;
   },
   beforeDestroy() {
     card.destroy();
