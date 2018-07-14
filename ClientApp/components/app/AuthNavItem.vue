@@ -2,6 +2,7 @@
   <b-nav-item-dropdown v-if="isAuthenticated" right>
     <template slot="button-content">
       <i class="fas fa-user"></i>
+      {{ fullName }}
     </template>
     <b-dropdown-item v-if="isCustomer" to="/account">
       <i class="fas fa-user"></i>
@@ -27,6 +28,11 @@ export default {
     },
     isCustomer() {
       return this.$store.getters.isInRole("Customer");
+    },
+    fullName() {
+      return `${this.$store.state.auth.firstName} ${
+        this.$store.state.auth.lastName
+      }`;
     }
   },
   methods: {

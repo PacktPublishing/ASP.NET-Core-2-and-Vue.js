@@ -29,6 +29,8 @@ namespace ECommerce.Features.Account
 
       user = new AppUser
       {
+        FirstName = model.FirstName,
+        LastName = model.LastName,
         Email = model.Email,
         EmailConfirmed = true,
         UserName = model.Email,
