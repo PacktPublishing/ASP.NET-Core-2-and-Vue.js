@@ -40,23 +40,24 @@ export default {
   },
   created() {
     this.index = this.initial;
-    this.bindEvents();
+    window.addEventListener("keyup", this.onKeyup);
+  },
+  beforeDestroy() {
+    window.removeEventListener("keyup", this.onKeyup);
   },
   methods: {
-    bindEvents() {
-      window.addEventListener("keyup", event => {
-        switch (event.keyCode) {
-          case 27:
-            this.close();
-            break;
-          case 37:
-            this.prev();
-            break;
-          case 39:
-            this.next();
-            break;
-        }
-      });
+    onKeyup(event) {
+      switch (event.keyCode) {
+        case 27:
+          this.close();
+          break;
+        case 37:
+          this.prev();
+          break;
+        case 39:
+          this.next();
+          break;
+      }
     },
     next() {
       if (this.index < this.images.length - 1) {
