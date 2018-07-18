@@ -3,25 +3,22 @@ export const addProductToCart = (state, product) => {
   state.cart.push(product);
 };
 
-export const updateProductQuantity = (state, product) => {
-  const index = state.cart.indexOf(product);
-  let cartItem = state.cart[index];
+export const updateProductQuantity = (state, index) => {
+  let cartItem = Object.assign({}, state.cart[index]);
   cartItem.quantity++;
 
-  state.cart.splice(index, 1, Object.assign({}, cartItem));
+  state.cart.splice(index, 1, cartItem);
 };
 
-export const removeProductFromCart = (state, product) => {
-  const index = state.cart.indexOf(product);
+export const removeProductFromCart = (state, index) => {
   state.cart.splice(index, 1);
 };
 
 export const setProductQuantity = (state, payload) => {
-  const index = state.cart.indexOf(payload.product);
-  let cartItem = state.cart[index];
+  let cartItem = Object.assign({}, state.cart[payload.index]);
   cartItem.quantity = payload.quantity;
 
-  state.cart.splice(index, 1, Object.assign({}, cartItem));
+  state.cart.splice(payload.index, 1, cartItem);
 };
 
 export const initialise = state => {
