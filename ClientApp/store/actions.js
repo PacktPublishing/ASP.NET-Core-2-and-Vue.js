@@ -44,43 +44,37 @@ export const setProductQuantity = ({ state, commit }, payload) => {
 };
 
 export const login = ({ commit }, payload) => {
-  return new Promise((resolve, reject) => {
-    commit("loginRequest");
-    axios
-      .post("/api/token", payload)
-      .then(response => {
-        const auth = response.data;
-        axios.defaults.headers.common["Authorization"] = `Bearer ${
-          auth.access_token
-        }`;
-        commit("loginSuccess", auth);
-        commit("hideAuthModal");
-        Cookie.set("AUTH", JSON.stringify(auth));
-        resolve(response);
-      })
-      .catch(error => {
-        commit("loginError");
-        delete axios.defaults.headers.common["Authorization"];
-        Cookie.remove("AUTH");
-        reject(error.response);
-      });
-  });
+  commit("loginRequest");
+  axios
+    .post("/api/token", payload)
+    .then(response => {
+      const auth = response.data;
+      axios.defaults.headers.common["Authorization"] = `Bearer ${
+        auth.access_token
+      }`;
+      commit("loginSuccess", auth);
+      commit("hideAuthModal");
+      Cookie.set("AUTH", JSON.stringify(auth));
+      resolve(response);
+    })
+    .catch(error => {
+      commit("loginError");
+      delete axios.defaults.headers.common["Authorization"];
+      Cookie.remove("AUTH");
+      reject(error.response);
+    });
 };
 
 export const register = ({ commit }, payload) => {
-  return new Promise((resolve, reject) => {
-    commit("registerRequest");
-    axios
-      .post("/api/account", payload)
-      .then(response => {
-        commit("registerSuccess");
-        resolve(response);
-      })
-      .catch(error => {
-        commit("registerError");
-        reject(error.response);
-      });
-  });
+  commit("registerRequest");
+  axios
+    .post("/api/account", payload)
+    .then(response => {
+      commit("registerSuccess");
+    })
+    .catch(error => {
+      commit("registerError");
+    });
 };
 
 export const logout = ({ commit }) => {
@@ -90,37 +84,25 @@ export const logout = ({ commit }) => {
 };
 
 export const fetchProducts = ({ commit }, query) => {
-  return new Promise((resolve, reject) => {
-    return axios.get("/api/products", { params: query }).then(response => {
-      commit("setProducts", response.data);
-      resolve(response);
-    });
+  return axios.get("/api/products", { params: query }).then(response => {
+    commit("setProducts", response.data);
   });
 };
 
 export const fetchFilters = ({ commit }) => {
-  return new Promise((resolve, reject) => {
-    return axios.get("/api/filters").then(response => {
-      commit("setFilters", response.data);
-      resolve(response);
-    });
+  return axios.get("/api/filters").then(response => {
+    commit("setFilters", response.data);
   });
 };
 
 export const fetchProduct = ({ commit }, slug) => {
-  return new Promise((resolve, reject) => {
-    return axios.get(`/api/products/${slug}`).then(response => {
-      commit("setProduct", response.data);
-      resolve(response);
-    });
+  return axios.get(`/api/products/${slug}`).then(response => {
+    commit("setProduct", response.data);
   });
 };
 
 export const fetchOrders = ({ commit }) => {
-  return new Promise((resolve, reject) => {
-    return axios.get("/api/orders").then(response => {
-      commit("setOrders", response.data);
-      resolve(response);
-    });
+  return axios.get("/api/orders").then(response => {
+    commit("setOrders", response.data);
   });
 };

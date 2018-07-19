@@ -3,7 +3,6 @@ import { app, router, store } from "./app";
 import BootstrapVue from "bootstrap-vue";
 import VueToastr from "@deveodk/vue-toastr";
 import "@deveodk/vue-toastr/dist/@deveodk/vue-toastr.css";
-import "./helpers/validation";
 
 Vue.use(BootstrapVue);
 Vue.use(VueToastr, {

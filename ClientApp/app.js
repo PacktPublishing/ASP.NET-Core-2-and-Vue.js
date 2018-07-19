@@ -7,6 +7,7 @@ import { sync } from "vuex-router-sync";
 import Cookie from "js-cookie";
 import axios from "axios";
 import "./helpers/interceptors";
+import "./helpers/validation";
 import App from "./components/App.vue";
 
 Vue.use(VeeValidate);
