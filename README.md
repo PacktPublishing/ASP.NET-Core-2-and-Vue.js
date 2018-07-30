@@ -61,7 +61,7 @@ With the following software and hardware list you can run all code files present
 
 ## Get to Know the Author
 **Stuart Ratcliffe**
- He is a professional software developer who lives and works in the East Midlands, UK. He has held positions at some of the largest IT companies in the world, working on high-profile projects for the UK government. Currently, he has been working on track-and-trace systems for medical instruments that undergo sterilization. He holds a Tech Lead position on the digital side of a healthcare company, building both web and mobile applications to support the clinical side of the business. He is a full-stack .NET developer who loves to learn new technologies.
+is a professional software developer who lives and works in the East Midlands, UK. He has held positions at some of the largest IT companies in the world, working on high-profile projects for the UK government. Currently, he has been working on track-and-trace systems for medical instruments that undergo sterilization. He holds a Tech Lead position on the digital side of a healthcare company, building both web and mobile applications to support the clinical side of the business. He is a full-stack .NET developer who loves to learn new technologies.
 
 ### Suggestions and Feedback
 [Click here](https://docs.google.com/forms/d/e/1FAIpQLSdy7dATC6QmEL81FIUuymZ0Wy9vH1jHkvpY57OiMeKGqib_Ow/viewform) if you have any feedback or suggestions.
