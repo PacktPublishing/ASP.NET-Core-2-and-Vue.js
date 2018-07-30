@@ -1,6 +1,6 @@
 # ASP.NET-Core-2-and-Vue.js
 
-<a href="https://d1ldz4te4covpm.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/B09767_MockupCover.png" height="256px" align="right"></a>
+<a href="https://www.packtpub.com/sites/default/files/B09767_MockupCover.png" height="256px" align="right"></a>
 
 This is the code repository for [ASP.NET Core 2 and Vue.js](https://www.packtpub.com/application-development/hands-aspnet-core-2-and-vuejs?utm_source=GitHub&utm_medium=repository&utm_campaign=9781788839464), published by Packt.
 
@@ -49,15 +49,7 @@ With the following software and hardware list you can run all code files present
 |         | Visual Studio Code v1.25.1 or above | Windows, Mac OS X, and Linux (Any) |
 |         | PostgreSQL v10.1.3 or above         | Windows, Mac OS X, and Linux (Any) |
 |         | Google Chrome v67.X or above        | Windows, Mac OS X, and Linux (Any) |
-|         |                                     | Windows, Mac OS X, and Linux (Any) |
-|         |                                     | Windows, Mac OS X, and Linux (Any) |
-|         |                                     | Windows, Mac OS X, and Linux (Any) |
-|         |                                     | Windows, Mac OS X, and Linux (Any) |
-|         |                                     | Windows, Mac OS X, and Linux (Any) |
-|         |                                     | Windows, Mac OS X, and Linux (Any) |
-|         |                                     | Windows, Mac OS X, and Linux (Any) |
-|         |                                     | Windows, Mac OS X, and Linux (Any) |
-
+|         |                                     | 
 
 
 
