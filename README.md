@@ -18,6 +18,7 @@ This book covers the following exciting features:
 * Build a functioning shopping cart that persists its contents across browser sessions
 * Build client-side forms with immediate validation feedback using an open-source library dedicated to Vue.js form validation
 * Refactor backend application to use the OpenIddict library
+
 If you feel this book is for you, get your [copy](https://www.amazon.com/dp/1788839463) today!
 
 <a href="https://www.packtpub.com/?utm_source=github&utm_medium=banner&utm_campaign=GitHubBanner"><img src="https://raw.githubusercontent.com/PacktPublishing/GitHub/master/GitHub.png" 
