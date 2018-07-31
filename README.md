@@ -1,6 +1,6 @@
 # ASP.NET-Core-2-and-Vue.js
 
-<a href="https://www.packtpub.com/application-development/hands-aspnet-core-2-and-vuejs?utm_source=GitHub&utm_medium=repository&utm_campaign=9781788839464"><img src="https://d1ldz4te4covpm.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/B09767_MockupCover.png" height="256px" align="right"></a>
+<a href="https://www.packtpub.com/application-development/hands-aspnet-core-2-and-vuejs?utm_source=GitHub&utm_medium=repository&utm_campaign=9781788839464"><img src="https://d1ldz4te4covpm.cloudfront.net/sites/default/files/imagecache/ppv4_main_book_cover/B09767_cover_New.png" height="256px" align="right"></a>
 
 This is the code repository for [ASP.NET Core 2 and Vue.js](https://www.packtpub.com/application-development/hands-aspnet-core-2-and-vuejs?utm_source=GitHub&utm_medium=repository&utm_campaign=9781788839464), published by Packt.
 
