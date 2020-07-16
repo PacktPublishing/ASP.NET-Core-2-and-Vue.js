@@ -28,7 +28,7 @@
     "@deveodk/vue-toastr": "^1.0.4",
     "axios": "^0.17.1",
     "bootstrap-vue": "^2.0.0-rc.1",
-    "lodash": "^4.17.5",
+    "lodash": "^4.17.19",
     "nprogress": "^0.2.0",
     "vee-validate": "^2.0.6",
     "velocity-animate": "^1.5.1",
