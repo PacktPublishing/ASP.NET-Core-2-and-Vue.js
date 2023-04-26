@@ -22,7 +22,7 @@
     "vue-router": "^2.3.0",
     "vue-template-compiler": "^2.2.2",
     "webpack": "^2.2.0",
-    "webpack-hot-middleware": "^2.12.2"
+    "webpack-hot-middleware": "^2.25.3"
   },
   "dependencies": {
     "@deveodk/vue-toastr": "^1.0.4",
