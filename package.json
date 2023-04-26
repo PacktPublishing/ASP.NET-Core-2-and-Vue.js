@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@deveodk/vue-toastr": "^1.0.4",
-    "axios": "^0.17.1",
+    "axios": "^0.21.2",
     "bootstrap-vue": "^2.0.0-rc.1",
     "lodash": "^4.17.5",
     "nprogress": "^0.2.0",
